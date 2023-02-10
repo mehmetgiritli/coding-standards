@@ -1,0 +1,21 @@
+{
+    "name": "wad/coding-standards",
+    "description": "WAD development environment",
+    "keywords": ["wad", "development", "vscode"],
+    "license": "MIT",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Mehmet Giritli",
+            "email": "mehmet.giritli@abdn.ac.uk"
+        }
+    ],
+    "config": {
+        "vendor-dir": "."
+    },
+    "scripts": {
+        "post-root-package-install": [
+            "@composer create-project laravel/laravel laravel \"8.*\"",
+        ]
+    }
+}
