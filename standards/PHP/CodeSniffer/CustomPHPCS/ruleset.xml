@@ -1,0 +1,473 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ruleset name="Custom">
+    <description>A custom coding standard which builds on the coverage of PSR-12.</description>
+
+    <!-- Include the PSR-12 standard which extends PSR-1. -->
+    <rule ref="PSR12" />
+
+    <!-- Ignore various version control directories. -->
+    <exclude-pattern>*/.git/*</exclude-pattern>
+    <exclude-pattern>*/.hg/*</exclude-pattern>
+
+    <!-- 3. Namespace and Use Declarations -->
+
+    <rule ref="CustomPHPCS.Namespaces.UseInAlphabeticalOrder" />
+    <rule ref="CustomPHPCS.Namespaces.UnusedUseStatement" />
+    <rule ref="CustomPHPCS.Namespaces.UnusedUseStatement.UnusedUse">
+        <exclude-pattern>*.blade.*</exclude-pattern>
+    </rule>
+
+    <!-- 4.4 Method Arguments -->
+
+    <!-- Method names MUST NOT be declared with a space after the method name.
+         The opening brace MUST go on its own line, and the closing brace MUST
+         go on the next line following the body. There MUST NOT be a space after
+         the opening parenthesis, and there MUST NOT be a space before the closing parenthesis. -->
+    <rule ref="PEAR.Functions.FunctionDeclaration" />
+    <rule ref="PEAR.Functions.FunctionDeclaration.SpaceAfterFunction">
+        <severity>1</severity>
+        <type>warning</type>
+    </rule>
+    <rule ref="PEAR.Functions.FunctionDeclaration.SpaceAfterUse">
+        <severity>1</severity>
+        <type>warning</type>
+    </rule>
+    <rule ref="PEAR.Functions.FunctionDeclaration.BraceOnNewLine">
+        <severity>1</severity>
+        <type>warning</type>
+    </rule>
+    <rule ref="PEAR.Functions.FunctionDeclaration.BraceOnSameLine">
+        <severity>1</severity>
+        <type>warning</type>
+    </rule>
+
+    <!-- 5. Control Structures -->
+
+    <!-- Warn if assignments in conditions are detected. -->
+    <rule ref="CustomPHPCS.ControlStructures.AssignmentInCondition" />
+
+    <!-- 7. Overrides -->
+
+    <!-- 7.1 PSR-1 -->
+
+    <!-- Check the declaration of the class is correct. -->
+    <rule ref="PSR1.Classes.ClassDeclaration.MissingNamespace">
+        <!-- Reduce severity. -->
+        <severity>1</severity>
+        <!-- Downgrade errors to warnings. -->
+        <type>warning</type>
+    </rule>
+
+    <!-- Method names SHOULD be declared in camel caps. -->
+    <rule ref="PSR1.Methods.CamelCapsMethodName.NotCamelCaps">
+        <!-- Downgrade errors to warnings. -->
+        <type>warning</type>
+    </rule>
+
+    <!-- 7.2 PSR-2 -->
+
+    <!-- Verify that there are no `else if` statements (`elseif` should be used instead). -->
+    <rule ref="PSR2.ControlStructures.ElseIfDeclaration">
+        <!-- Upgrade warnings to errors. -->
+        <type>error</type>
+    </rule>
+
+    <!-- Check that control structures are defined and indented correctly. -->
+    <rule ref="Generic.WhiteSpace.ScopeIndent">
+        <!-- Reduce severity. -->
+        <severity>1</severity>
+        <!-- Downgrade errors to warnings. -->
+        <type>warning</type>
+    </rule>
+
+    <rule ref="Squiz.ControlStructures.SwitchDeclaration.MissingDefault">
+        <!-- Downgrade errors to warnings. -->
+        <type>warning</type>
+    </rule>
+
+    <rule ref="Squiz.WhiteSpace.ScopeClosingBrace.Indent">
+        <!-- Reduce severity. -->
+        <severity>1</severity>
+        <!-- Downgrade errors to warnings. -->
+        <type>warning</type>
+    </rule>
+
+    <!-- PSR-2 ignores trailing whitespace at the end of blank lines but let's keep things tidy. -->
+    <rule ref="Squiz.WhiteSpace.SuperfluousWhitespace" />
+    <rule ref="Squiz.WhiteSpace.SuperfluousWhitespace.StartFile">
+        <!-- Increase severity. -->
+        <severity>5</severity>
+    </rule>
+    <rule ref="Squiz.WhiteSpace.SuperfluousWhitespace.EndFile">
+        <!-- Increase severity. -->
+        <severity>5</severity>
+    </rule>
+    <rule ref="Squiz.WhiteSpace.SuperfluousWhitespace.EmptyLines">
+        <!-- Increase severity. -->
+        <severity>5</severity>
+    </rule>
+
+    <!-- 8. PHP Files -->
+
+    <!-- Throw an error if mixed line endings are detected. -->
+    <rule ref="Internal.LineEndings.Mixed">
+        <!-- Upgrade warnings to errors. -->
+        <type>error</type>
+    </rule>
+
+    <!-- When no PHP code is detected in a file. -->
+    <rule ref="Internal.NoCodeFound">
+        <!-- Reduce severity. -->
+        <severity>1</severity>
+    </rule>
+
+    <!-- PHP code MUST use only UTF-8 encoding without BOM. -->
+    <rule ref="Generic.Files.ByteOrderMark" />
+
+    <!-- 9. Commenting -->
+
+    <!-- Warn about the presence of FIXME or TODO comments. -->
+    <rule ref="Generic.Commenting.Fixme" />
+    <rule ref="Generic.Commenting.Todo" />
+
+    <!-- Test that the stars (`*`) in a doc comment align correctly. -->
+    <rule ref="Squiz.Commenting.DocCommentAlignment" />
+
+    <!-- Check for an empty catch clause without a comment. -->
+    <rule ref="Squiz.Commenting.EmptyCatchComment" />
+
+    <!-- Verify that an `@throws` tag exists for each exception type a function throws. -->
+    <rule ref="Squiz.Commenting.FunctionCommentThrowTag" />
+
+    <!-- Parse and verify the variable doc comment. -->
+    <rule ref="Squiz.Commenting.VariableComment" />
+
+    <!-- Parse and verify the class doc comment. -->
+    <rule ref="Squiz.Commenting.ClassComment" />
+    <rule ref="Squiz.Commenting.ClassComment.Missing">
+        <!-- Reduce severity. -->
+        <severity>1</severity>
+        <!-- Downgrade errors to warnings. -->
+        <type>warning</type>
+    </rule>
+
+    <!-- Parse and verify the doc comments for functions. -->
+    <rule ref="Squiz.Commenting.FunctionComment" />
+    <rule ref="Squiz.Commenting.FunctionComment.EmptyThrows">
+        <!-- Reduce severity. -->
+        <severity>1</severity>
+        <!-- Downgrade errors to warnings. -->
+        <type>warning</type>
+    </rule>
+    <rule ref="Squiz.Commenting.FunctionComment.MissingParamComment">
+        <!-- Reduce severity. -->
+        <severity>1</severity>
+        <!-- Downgrade errors to warnings. -->
+        <type>warning</type>
+    </rule>
+    <rule ref="Squiz.Commenting.FunctionComment.ParamCommentFullStop">
+        <!-- Reduce severity. -->
+        <severity>1</severity>
+        <!-- Downgrade errors to warnings. -->
+        <type>warning</type>
+    </rule>
+    <rule ref="Squiz.Commenting.FunctionComment.ScalarTypeHintMissing">
+        <!-- Reduce severity. -->
+        <severity>1</severity>
+        <!-- Downgrade errors to warnings. -->
+        <type>warning</type>
+    </rule>
+
+    <rule ref="Squiz.Commenting.FunctionComment.Missing">
+        <!-- Downgrade errors to warnings. -->
+        <type>warning</type>
+    </rule>
+    <rule ref="Squiz.Commenting.FunctionComment.MissingParamName">
+        <!-- Downgrade errors to warnings. -->
+        <type>warning</type>
+    </rule>
+    <rule ref="Squiz.Commenting.FunctionComment.MissingParamTag">
+        <!-- Downgrade errors to warnings. -->
+        <type>warning</type>
+    </rule>
+    <rule ref="Squiz.Commenting.FunctionComment.TypeHintMissing">
+        <!-- Downgrade errors to warnings. -->
+        <type>warning</type>
+    </rule>
+    <rule ref="Squiz.Commenting.VariableComment.Missing">
+        <!-- Downgrade errors to warnings. -->
+        <type>warning</type>
+    </rule>
+
+    <!-- 10. Arrays -->
+
+    <!-- Short array syntax MUST be used to define arrays (`[]`). -->
+    <rule ref="Generic.Arrays.DisallowLongArraySyntax.Found" />
+
+    <!-- Ensure that there are no spaces around square brackets. -->
+    <rule ref="Squiz.Arrays.ArrayBracketSpacing" />
+
+    <!-- Ensure that arrays conform to the array coding standard. -->
+    <rule ref="CustomPHPCS.Arrays.ArrayDeclaration" />
+    <rule ref="CustomPHPCS.Arrays.ArrayDeclaration.CloseBraceNewLine">
+        <!-- Reduce severity. -->
+        <severity>1</severity>
+        <!-- Downgrade errors to warnings. -->
+        <type>warning</type>
+    </rule>
+    <rule ref="CustomPHPCS.Arrays.ArrayDeclaration.CloseBraceNotAligned">
+        <!-- Reduce severity. -->
+        <severity>1</severity>
+        <!-- Downgrade errors to warnings. -->
+        <type>warning</type>
+    </rule>
+    <rule ref="CustomPHPCS.Arrays.ArrayDeclaration.FirstIndexNoNewline">
+        <!-- Reduce severity. -->
+        <severity>1</severity>
+        <!-- Downgrade errors to warnings. -->
+        <type>warning</type>
+    </rule>
+    <rule ref="CustomPHPCS.Arrays.ArrayDeclaration.FirstValueNoNewline">
+        <!-- Reduce severity. -->
+        <severity>1</severity>
+        <!-- Downgrade errors to warnings. -->
+        <type>warning</type>
+    </rule>
+    <rule ref="CustomPHPCS.Arrays.ArrayDeclaration.IndexNoNewline">
+        <!-- Reduce severity. -->
+        <severity>1</severity>
+        <!-- Downgrade errors to warnings. -->
+        <type>warning</type>
+    </rule>
+    <rule ref="CustomPHPCS.Arrays.ArrayDeclaration.KeyNotAligned">
+        <!-- Reduce severity. -->
+        <severity>1</severity>
+        <!-- Downgrade errors to warnings. -->
+        <type>warning</type>
+    </rule>
+    <rule ref="CustomPHPCS.Arrays.ArrayDeclaration.KeySpecified">
+        <!-- Reduce severity. -->
+        <severity>1</severity>
+        <!-- Downgrade errors to warnings. -->
+        <type>warning</type>
+    </rule>
+    <rule ref="CustomPHPCS.Arrays.ArrayDeclaration.MultiLineNotAllowed">
+        <!-- Reduce severity. -->
+        <severity>1</severity>
+        <!-- Downgrade errors to warnings. -->
+        <type>warning</type>
+    </rule>
+    <rule ref="CustomPHPCS.Arrays.ArrayDeclaration.NoCommaAfterLast">
+        <!-- Reduce severity. -->
+        <severity>1</severity>
+        <!-- Downgrade errors to warnings. -->
+        <type>warning</type>
+    </rule>
+    <rule ref="CustomPHPCS.Arrays.ArrayDeclaration.SingleLineNotAllowed">
+        <!-- Reduce severity. -->
+        <severity>1</severity>
+        <!-- Downgrade errors to warnings. -->
+        <type>warning</type>
+    </rule>
+    <rule ref="CustomPHPCS.Arrays.ArrayDeclaration.SpaceAfterComma">
+        <!-- Reduce severity. -->
+        <severity>1</severity>
+        <!-- Downgrade errors to warnings. -->
+        <type>warning</type>
+    </rule>
+    <rule ref="CustomPHPCS.Arrays.ArrayDeclaration.SpaceBeforeDoubleArrow">
+        <!-- Reduce severity. -->
+        <severity>1</severity>
+        <!-- Downgrade errors to warnings. -->
+        <type>warning</type>
+    </rule>
+    <rule ref="CustomPHPCS.Arrays.ArrayDeclaration.ValueNoNewline">
+        <!-- Reduce severity. -->
+        <severity>1</severity>
+        <!-- Downgrade errors to warnings. -->
+        <type>warning</type>
+    </rule>
+    <rule ref="CustomPHPCS.Arrays.ArrayDeclaration.ValueNotAligned">
+        <!-- Reduce severity. -->
+        <severity>1</severity>
+        <!-- Downgrade errors to warnings. -->
+        <type>warning</type>
+    </rule>
+
+    <!-- 11. Code Analysis -->
+
+    <rule ref="Generic.CodeAnalysis.EmptyStatement" />
+    <rule ref="Generic.CodeAnalysis.EmptyStatement.DetectedIF">
+        <!-- Downgrade errors to warnings. -->
+        <type>warning</type>
+    </rule>
+
+    <!-- Detect `for` loops that can be simplified to `while` loops. -->
+    <rule ref="Generic.CodeAnalysis.ForLoopShouldBeWhileLoop" />
+
+    <!-- Detect `for` loops that use a function call in the test expression. -->
+    <rule ref="Generic.CodeAnalysis.ForLoopWithTestFunctionCall" />
+
+    <!-- Detect incrementer jumbling in `for` loops. -->
+    <rule ref="Generic.CodeAnalysis.JumbledIncrementer" />
+
+    <!-- Detect unconditional `if` and `elseif` statements. -->
+    <rule ref="Generic.CodeAnalysis.UnconditionalIfStatement" />
+
+    <!-- Detect unnecessary final modifiers inside of final classes. -->
+    <rule ref="Generic.CodeAnalysis.UnnecessaryFinalModifier" />
+
+    <!-- Detect unnecessary overridden methods that simply call their parent. -->
+    <rule ref="Generic.CodeAnalysis.UselessOverridingMethod" />
+
+    <!-- 12. Formatting & Spacing -->
+
+    <!-- There MUST be one space either side of the concatenation operator (` . `). -->
+    <rule ref="Squiz.Strings.ConcatenationSpacing">
+        <properties>
+            <property name="spacing" value="1" />
+            <property name="ignoreNewlines" value="true" />
+        </properties>
+    </rule>
+
+    <!-- Ensure there is no space after the not (!) operator. -->
+    <rule ref="Generic.Formatting.SpaceAfterNot">
+        <properties>
+            <property name="spacing" value="0" />
+        </properties>
+    </rule>
+
+    <!-- Ensure there is one space after a cast token. -->
+    <rule ref="Generic.Formatting.SpaceAfterCast" />
+
+    <!-- Ensure all language constructs contain a single space between themselves and their content. -->
+    <rule ref="Squiz.WhiteSpace.LanguageConstructSpacing" />
+
+    <!-- Verify that operators have valid spacing surrounding them. -->
+    <rule ref="Squiz.WhiteSpace.LogicalOperatorSpacing" />
+
+    <!-- Ensure there is no whitespace before a semicolon. -->
+    <rule ref="Squiz.WhiteSpace.SemicolonSpacing" />
+
+    <!-- Verify that operators have valid spacing surrounding them. -->
+    <rule ref="Squiz.WhiteSpace.OperatorSpacing" />
+    <rule ref="Squiz.WhiteSpace.OperatorSpacing.SpacingBefore">
+        <!-- Reduce severity. -->
+        <severity>1</severity>
+        <!-- Downgrade errors to warnings. -->
+        <type>warning</type>
+    </rule>
+
+    <!-- Test the spacing of shorthand `if` statements. -->
+    <rule ref="Squiz.ControlStructures.InlineIfDeclaration" />
+    <rule ref="Squiz.ControlStructures.InlineIfDeclaration.NotSingleLine">
+        <!-- Reduce severity. -->
+        <severity>1</severity>
+    </rule>
+    <rule ref="Squiz.ControlStructures.InlineIfDeclaration.SpacingAfterElse">
+        <!-- Reduce severity. -->
+        <severity>1</severity>
+    </rule>
+    <rule ref="Squiz.ControlStructures.InlineIfDeclaration.SpacingAfterThen">
+        <!-- Reduce severity. -->
+        <severity>1</severity>
+    </rule>
+    <rule ref="Squiz.ControlStructures.InlineIfDeclaration.SpacingBeforeElse">
+        <!-- Reduce severity. -->
+        <severity>1</severity>
+    </rule>
+    <rule ref="Squiz.ControlStructures.InlineIfDeclaration.SpacingBeforeThen">
+        <!-- Reduce severity. -->
+        <severity>1</severity>
+    </rule>
+
+    <!-- Check that control structures have the correct spacing around their brackets. -->
+    <rule ref="Squiz.WhiteSpace.ControlStructureSpacing.LineAfterClose">
+        <!-- Downgrade errors to warnings. -->
+        <type>warning</type>
+    </rule>
+    <rule ref="Squiz.WhiteSpace.ControlStructureSpacing.NoLineAfterClose">
+        <!-- Downgrade errors to warnings. -->
+        <type>warning</type>
+    </rule>
+    <rule ref="Squiz.WhiteSpace.ControlStructureSpacing.SpaceBeforeCloseBrace">
+        <!-- Downgrade errors to warnings. -->
+        <type>warning</type>
+    </rule>
+
+    <!-- 13. Generic -->
+
+    <!-- Report errors if the same class name is used in multiple files. -->
+    <rule ref="Generic.Classes.DuplicateClassName" />
+
+    <!-- Ensure that constant names are all uppercase. -->
+    <rule ref="Generic.NamingConventions.UpperCaseConstantName" />
+
+    <!-- Discourage the use of deprecated PHP functions. -->
+    <rule ref="Generic.PHP.DeprecatedFunctions" />
+
+    <!-- Throw an error when any code prefixed with an asperand (`@`) is encountered. -->
+    <rule ref="Generic.PHP.NoSilencedErrors" />
+
+    <!-- Suggest using `self::` where applicable. -->
+    <rule ref="Squiz.Classes.SelfMemberReference" />
+
+    <!-- Class names MUST be declared in StudlyCaps. -->
+    <rule ref="Squiz.Classes.ValidClassName" />
+
+    <!-- Warn about code that can never been executed. -->
+    <rule ref="Squiz.PHP.NonExecutableCode" />
+
+    <!-- Check for the use of `$this` in static methods to prevent runtime errors. -->
+    <rule ref="Squiz.Scope.StaticThisUsage" />
+
+    <!-- Ensure that the `++` operator is used where possible. -->
+    <rule ref="Squiz.Operators.IncrementDecrementUsage" />
+
+    <!-- Ensure logical operators `and` and `or` are NOT used. -->
+    <rule ref="Squiz.Operators.ValidLogicalOperators" />
+
+    <!-- Make sure that any use of double quoted strings are warranted and variables are wrapped in curly braces. -->
+    <rule ref="CustomPHPCS.Strings.DoubleQuoteUsage" />
+
+    <!-- Make sure that any strings that are echoed are not enclosed in brackets. -->
+    <rule ref="Squiz.Strings.EchoedStrings" />
+
+    <!-- Prevent the use of forbidden functions. -->
+    <rule ref="CustomPHPCS.Usage.ForbiddenFunctions" />
+
+    <!-- Detect problems with variables. -->
+    <rule ref="VariableAnalysis.CodeAnalysis.VariableAnalysis">
+        <properties>
+            <property name="validUnusedVariableNames" value="builder exception model notifiable options request validator" />
+        </properties>
+    </rule>
+    <rule ref="VariableAnalysis.CodeAnalysis.VariableAnalysis.UndefinedVariable">
+        <!-- Reduce severity. -->
+        <severity>1</severity>
+    </rule>
+    <rule ref="VariableAnalysis.CodeAnalysis.VariableAnalysis.UnusedVariable">
+        <!-- Upgrade warnings to errors. -->
+        <type>error</type>
+    </rule>
+    <rule ref="VariableAnalysis.CodeAnalysis.VariableAnalysis.VariableRedeclaration">
+        <!-- Upgrade warnings to errors. -->
+        <type>error</type>
+    </rule>
+    <rule ref="VariableAnalysis.CodeAnalysis.VariableAnalysis.SelfOutsideClass">
+        <!-- Upgrade warnings to errors. -->
+        <type>error</type>
+    </rule>
+
+    <!-- Convert conditions like `if ('' === $char)` to `if ($char === '')` -->
+    <rule ref="Generic.ControlStructures.DisallowYodaConditions" />
+
+    <!-- Convert `(true) ? $i = 1 : $i = 0` to `$i = (true) ? 1 : 0` -->
+    <rule ref="CustomPHPCS.ControlStructures.TernaryConditionVariableAssignment" />
+
+    <!-- Convert `($i) ? $i : 0` to `($i) ?: 0` -->
+    <rule ref="CustomPHPCS.ControlStructures.ElvisOperator" />
+
+    <!-- Convert `$$variable` to `${$variable}` -->
+    <rule ref="CustomPHPCS.Variables.WrapVariableVariableNameInCurlyBraces" />
+</ruleset>
