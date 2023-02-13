@@ -14,7 +14,8 @@
         "post-root-package-install": [
             "mv standards ../coding-standards",
             "mv vscode/.vscode ../",
-            "cd .. ; composer require --dev squizlabs/php_codesniffer"
+            "cd .. ; composer require --dev squizlabs/php_codesniffer",
+            "composer require --dev sirbrillig/phpcs-variable-analysis"
         ],
         "post-create-project-cmd": [
             "cd .. ; rm -rf test"
