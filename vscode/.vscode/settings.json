@@ -1,0 +1,54 @@
+{
+    "[php]": {
+        "editor.defaultFormatter": "valeryanm.vscode-phpsab",
+        "editor.formatOnSave": true
+    },
+    "[javascript]": {
+        "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+        "editor.formatOnSave": true
+    },
+    "[vue]": {
+        "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+        "editor.formatOnSave": true
+    },
+
+    "eslint.alwaysShowStatus": true,
+    "eslint.format.enable": true,
+    "eslint.lintTask.enable": true,
+    "eslint.debug": true,
+    "eslint.validate": ["vue", "html", "javascript", "typescript", "javascriptreact", "typescriptreact"],
+    "eslint.codeActionsOnSave.rules": null,
+    "eslint.nodePath": "node_modules",
+
+    "files.associations": {
+        "*.blade.php": "php"
+    },
+
+    "php.suggest.basic": false,
+    "php.validate.enable": false,
+    "php.problems.exclude": {
+        "storage/": true,
+        "vendor/": true,
+        "_ide_helper.php": true
+    },
+    "php.stubs": [
+        "all"
+    ],
+    "php.version": "5.6",
+
+    "phpsab.snifferShowSources": true,
+    "phpsab.standard": "standards/PHP/CodeSniffer/CustomPHPCS/ruleset.xml",
+    "phpsab.snifferMode": "onType",
+    "phpsab.autoRulesetSearch": false,
+    "phpsab.fixerArguments": [
+        "-n",
+        "--ignore=tests/* database/* laravel/vendor/* vendor/*"
+    ],
+    "phpsab.snifferArguments": [
+        "-n",
+        "--ignore=vendor/*,storage/*, _ide_helper*",
+    ],
+    "phpsab.debug": true,
+
+    "workbench.colorTheme": "Default Dark+",
+}
