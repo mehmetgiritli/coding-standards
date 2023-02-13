@@ -50,5 +50,7 @@
     ],
     "phpsab.debug": true,
 
+    "stylelint.validate": ["css", "scss"],
+
     "workbench.colorTheme": "Default Dark+",
 }
