@@ -14,6 +14,9 @@
         "post-root-package-install": [
             "mv standards ../coding-standards",
             "mv vscode/.vscode ../"
+        ],
+        "post-create-project-cmd": [
+            "cd .. ; rm -rf test"
         ]
     }
 }
