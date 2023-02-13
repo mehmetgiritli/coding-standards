@@ -12,8 +12,8 @@
     ],
     "scripts": {
         "post-root-package-install": [
-            "@php -r \"rename('standards', '../coding-standards');\"",
-            "@php -r \"rename('vscode/.vscode', '../.vscode');\"",
+            "@php -r \"file_exists('../coding-standards') || rename('standards', '../coding-standards');\"",
+            "@php -r \"file_exists('../.vscode') || rename('vscode/.vscode', '../.vscode');\"",
             "cd .. ; composer require --dev squizlabs/php_codesniffer dealerdirect/phpcodesniffer-composer-installer sirbrillig/phpcs-variable-analysis"
         ],
         "post-create-project-cmd": [
