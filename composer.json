@@ -14,7 +14,8 @@
         "post-root-package-install": [
             "@php -r \"file_exists('../coding-standards') || rename('standards', '../coding-standards');\"",
             "@php -r \"file_exists('../.vscode') || rename('vscode/.vscode', '../.vscode');\"",
-            "cd .. ; composer require --dev squizlabs/php_codesniffer dealerdirect/phpcodesniffer-composer-installer sirbrillig/phpcs-variable-analysis"
+            "cd .. ; composer require --dev squizlabs/php_codesniffer dealerdirect/phpcodesniffer-composer-installer sirbrillig/phpcs-variable-analysis",
+            "npm install eslint eslint-plugin-import eslint-plugin-n eslint-plugin-promise eslint-config-standard eslint-plugin-vue @html-eslint/parser @html-eslint/eslint-plugin"
         ],
         "post-create-project-cmd": [
             "cd .. ; rm -rf test"
