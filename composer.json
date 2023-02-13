@@ -13,7 +13,7 @@
     "scripts": {
         "post-root-package-install": [
             "@php -r \"rename('standards', '../coding-standards');\"",
-            "mv -f vscode/.vscode ../",
+            "@php -r \"rename('vscode/.vscode', '../.vscode');\"",
             "cd .. ; composer require --dev squizlabs/php_codesniffer dealerdirect/phpcodesniffer-composer-installer sirbrillig/phpcs-variable-analysis"
         ],
         "post-create-project-cmd": [
