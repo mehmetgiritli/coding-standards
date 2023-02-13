@@ -52,5 +52,10 @@
 
     "stylelint.validate": ["css", "scss"],
 
+    // Turn off VSCode's validation for these bit since stylelint will manage
+    "css.validate": false,
+    "less.validate": false,
+    "scss.validate": false,
+
     "workbench.colorTheme": "Default Dark+",
 }
