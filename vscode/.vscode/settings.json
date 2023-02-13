@@ -37,7 +37,7 @@
     "php.version": "5.6",
 
     "phpsab.snifferShowSources": true,
-    "phpsab.standard": "standards/PHP/CodeSniffer/CustomPHPCS/ruleset.xml",
+    "phpsab.standard": "coding-standards/PHP/CodeSniffer/CustomPHPCS/ruleset.xml",
     "phpsab.snifferMode": "onType",
     "phpsab.autoRulesetSearch": false,
     "phpsab.fixerArguments": [
