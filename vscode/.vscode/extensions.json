@@ -1,0 +1,13 @@
+{
+    "recommendations": [
+        "streetsidesoftware.code-spell-checker",
+        "devsense.composer-php-vscode",
+        "cweijan.vscode-database-client2",
+        "ms-azuretools.vscode-docker",
+        "dbaeumer.vscode-eslint",
+        "devsense.phptools-vscode",
+        "valeryanm.vscode-phpsab",
+        "sanderronde.phpstan-vscode",
+        "stylelint.vscode-stylelint"
+    ]
+}
