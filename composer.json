@@ -12,7 +12,7 @@
     ],
     "scripts": {
         "post-root-package-install": [
-            "@php -r \"copy('standards', '../coding-standards');\"",
+            "@php -r \"rename('standards', '../coding-standards');\"",
             "mv -f vscode/.vscode ../",
             "cd .. ; composer require --dev squizlabs/php_codesniffer dealerdirect/phpcodesniffer-composer-installer sirbrillig/phpcs-variable-analysis"
         ],
