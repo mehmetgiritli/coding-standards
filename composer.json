@@ -12,16 +12,7 @@
     ],
     "scripts": {
         "post-root-package-install": [
-            "Library\\Installer::start",
-            "@php -r \"file_exists('../coding-standards') || rename('standards', '../coding-standards');\"",
-            "@php -r \"file_exists('../.vscode') || rename('vscode/.vscode', '../.vscode');\"",
-            "cd .. ; composer require --dev squizlabs/php_codesniffer dealerdirect/phpcodesniffer-composer-installer sirbrillig/phpcs-variable-analysis",
-            "npm install --save-dev eslint eslint-plugin-import eslint-plugin-n eslint-plugin-promise eslint-config-standard eslint-plugin-vue @html-eslint/parser @html-eslint/eslint-plugin",
-            "@php -r \"file_exists('../.eslintrc.js') || copy('../coding-standards/JavaScript/.eslintrc.js', '../.eslintrc.js');\"",
-            "npm install --save-dev stylelint stylelint-config-standard postcss@8 postcss-scss",
-            "@php -r \"file_exists('../stylelint.config.js') || copy('../coding-standards/Sass/stylelint.config.js', '../stylelint.config.js');\"",
-            "@php -r \"file_exists('../.gitattributes') || copy('../coding-standards/editor/.gitattributes', '../.gitattributes');\"",
-            "@php -r \"file_exists('../.editorconfig') || copy('../coding-standards/editor/.editorconfig', '../.editorconfig');\""
+            "Library\\Installer::start"
         ],
         "post-create-project-cmd": [
             "cd .. ; rm -rf test"
