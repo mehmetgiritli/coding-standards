@@ -7,7 +7,7 @@ use Composer\Script\Event;
 
 class Installer
 {
-    public function start(PackageEvent $event)
+    public function start(Event $event)
     {
         echo 'Hello';
     }
