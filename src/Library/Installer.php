@@ -7,13 +7,13 @@ use Composer\Script\Event;
 
 class Installer
 {
-    public function start(Event $event)
+    public static function start(Event $event)
     {
         self::movePayloads();
         self::installDevDependencies();
     }
 
-    private function movePayloads()
+    private static function movePayloads()
     {
         $payloads = [
             'vscode/.vscode'                     => '.vscode',
@@ -43,7 +43,7 @@ class Installer
         }
     }
 
-    private function installDevDependencies()
+    private static function installDevDependencies()
     {
         $packages = [
             'squizlabs/php_codesniffer',
