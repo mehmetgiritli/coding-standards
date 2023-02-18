@@ -7,7 +7,7 @@ use Composer\Script\Event;
 
 class Installer
 {
-    public static function start(Event $event)
+    public static function start()
     {
         self::movePayloads();
         self::installDevDependencies();
@@ -34,8 +34,8 @@ class Installer
             $target = ltrim($target, '/');
             $targetFileName = "../{$target}";
 
-            if (file_exists($targetFileName) && getenv('OVERWRITE') !== true) {
-                echo "{$targetFileName} exists, not overwriting.\n";
+            if (file_exists($targetFileName) && getenv('OVERWRITE') != true) {
+                echo "{$target} exists, not overwriting. Set OVERWRITE environment variable to force.\n";
                 continue;
             }
 
@@ -45,16 +45,18 @@ class Installer
 
     private static function installDevDependencies()
     {
+
         $packages = [
             'squizlabs/php_codesniffer',
             'dealerdirect/phpcodesniffer-composer-installer',
             'sirbrillig/phpcs-variable-analysis',
         ];
 
-        chdir('..');
         $composerParameters = implode(' ', $packages);
 
-        exec("composer require --dev {$composerParameters}");
+        $workDir = getcwd() . '/../';
+        $command = "composer --dev require {$composerParameters} -d {$workDir}";
+        exec($command);
     }
 
     /*
