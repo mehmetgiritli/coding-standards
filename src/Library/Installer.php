@@ -9,8 +9,8 @@ class Installer
 {
     public function start(Event $event)
     {
-        $this->movePayloads();
-        $this->installDevDependencies();
+        self::movePayloads();
+        self::installDevDependencies();
     }
 
     private function movePayloads()
