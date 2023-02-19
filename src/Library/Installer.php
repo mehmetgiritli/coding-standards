@@ -68,8 +68,29 @@ class Installer
         exec($command);
     }
 
-    /*
-        "npm install --save-dev eslint eslint-plugin-import eslint-plugin-n eslint-plugin-promise eslint-config-standard eslint-plugin-vue @html-eslint/parser @html-eslint/eslint-plugin",
-        "npm install --save-dev stylelint stylelint-config-standard postcss@8 postcss-scss",
-    */
+    private static function installNodeDevDependencies()
+    {
+        $nodePackages = [
+            'eslint',
+            'eslint-plugin-import',
+            'eslint-plugin-n',
+            'eslint-plugin-promise',
+            'eslint-config-standard',
+            'eslint-plugin-vue',
+            '@html-eslint/parser',
+            '@html-eslint/eslint-plugin',
+            'stylelint',
+            'stylelint-config-standard',
+            'postcss@8',
+            'postcss-scss'
+        ];
+
+        $npmPackageParameters = implode(' ', $nodePackages);
+
+        $workDir = getcwd() . '/../';
+        chdir($workDir);
+
+        $command = "npm install --save-dev {$npmPackageParameters}";
+        exec($command);
+    }
 }
