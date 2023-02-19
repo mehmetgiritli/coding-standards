@@ -11,7 +11,8 @@ class Installer
     public static function start(Event $event)
     {
         self::movePayloads($event);
-        self::installDevDependencies();
+        self::installDevDependencies($event);
+        self::installNodeDevDependencies($event);
     }
 
     private static function movePayloads(Event $event)
@@ -52,8 +53,11 @@ class Installer
         }
     }
 
-    private static function installDevDependencies()
+    private static function installDevDependencies(Event $event)
     {
+        $message = 'Installing Composer development dependencies.';
+        $formattedMessage = Messages::getInfo($message);
+        Messages::display($event, $formattedMessage);
 
         $packages = [
             'squizlabs/php_codesniffer',
@@ -68,8 +72,12 @@ class Installer
         exec($command);
     }
 
-    private static function installNodeDevDependencies()
+    private static function installNodeDevDependencies(Event $event)
     {
+        $message = 'Installing Node development dependencies.';
+        $formattedMessage = Messages::getInfo($message);
+        Messages::display($event, $formattedMessage);
+
         $nodePackages = [
             'eslint',
             'eslint-plugin-import',
