@@ -4,6 +4,7 @@ namespace Library;
 
 use Composer\Installer\PackageEvent;
 use Composer\Script\Event;
+use Library\Messages;
 
 class Installer
 {
@@ -35,8 +36,9 @@ class Installer
             $targetFileName = "../{$target}";
 
             if (file_exists($targetFileName) && getenv('OVERWRITE') != true) {
-                $warningMessage = "<comment>{$target} exists, not overwriting. Set OVERWRITE environment variable to force.</comment>";
-                $event->getIO()->write($warningMessage);
+                $message = "{$target} exists, not overwriting. Set OVERWRITE environment variable to force.";
+                $formattedMessage = Messages::getComment($message);
+                $event->getIO()->write($formattedMessage);
                 continue;
             }
 
