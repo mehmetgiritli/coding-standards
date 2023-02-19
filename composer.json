@@ -15,7 +15,7 @@
             "Library\\Installer::start"
         ],
         "post-create-project-cmd": [
-            "cd .. ; rm -rf test"
+            "Library\\Installer::cleanUp"
         ]
     },
     "autoload": {

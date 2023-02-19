@@ -15,6 +15,13 @@ class Installer
         self::installNodeDevDependencies($event);
     }
 
+    public static function cleanUp()
+    {
+        $workDirectory = basename(getcwd());
+        echo "Removing {$workDirectory}";
+        //"cd .. ; rm -rf test"
+    }
+
     private static function movePayloads(Event $event)
     {
         $payloads = [
