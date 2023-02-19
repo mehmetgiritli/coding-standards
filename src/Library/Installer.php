@@ -14,7 +14,7 @@ class Installer
         self::installDevDependencies();
     }
 
-    private static function movePayloads($event)
+    private static function movePayloads(Event $event)
     {
         $payloads = [
             'vscode/.vscode'                     => '.vscode',
@@ -36,9 +36,15 @@ class Installer
             $targetFileName = "../{$target}";
 
             if (file_exists($targetFileName) && getenv('OVERWRITE') != true) {
-                $message = "{$target} exists, not overwriting. Set OVERWRITE environment variable to force.";
+
+                $message = "{$target} exists, not overwriting.";
                 $formattedMessage = Messages::getComment($message);
-                $event->getIO()->write($formattedMessage);
+                Messages::display($event, $formattedMessage);
+
+                $message = 'Set OVERWRITE environment variable to force.';
+                $formattedMessage = Messages::getInfo($message);
+                Messages::display($event, $formattedMessage);
+
                 continue;
             }
 
