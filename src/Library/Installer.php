@@ -7,13 +7,13 @@ use Composer\Script\Event;
 
 class Installer
 {
-    public static function start()
+    public static function start(Event $event)
     {
-        self::movePayloads();
+        self::movePayloads($event);
         self::installDevDependencies();
     }
 
-    private static function movePayloads()
+    private static function movePayloads($event)
     {
         $payloads = [
             'vscode/.vscode'                     => '.vscode',
@@ -35,7 +35,8 @@ class Installer
             $targetFileName = "../{$target}";
 
             if (file_exists($targetFileName) && getenv('OVERWRITE') != true) {
-                echo "<info>{$target} exists, not overwriting. Set OVERWRITE environment variable to force.</info>";
+                $event->getIO()->write('Hey'):
+                echo "# <info>{$target} exists, not overwriting. Set OVERWRITE environment variable to force.</info>";
                 continue;
             }
 
