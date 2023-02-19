@@ -35,8 +35,8 @@ class Installer
             $targetFileName = "../{$target}";
 
             if (file_exists($targetFileName) && getenv('OVERWRITE') != true) {
-                $event->getIO()->write("# <info>{$target} exists, not overwriting. Set OVERWRITE environment variable to force.</info>");
-                echo "# <info>{$target} exists, not overwriting. Set OVERWRITE environment variable to force.</info>";
+                $warningMessage = "<comment>{$target} exists, not overwriting. Set OVERWRITE environment variable to force.</comment>";
+                $event->getIO()->write($warningMessage);
                 continue;
             }
 
