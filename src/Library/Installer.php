@@ -95,10 +95,7 @@ class Installer
 
         $npmPackageParameters = implode(' ', $nodePackages);
 
-        $workDir = getcwd() . '/../';
-        chdir($workDir);
-
-        $command = "npm install --save-dev {$npmPackageParameters}";
+        $command = "cd .. ; npm install --save-dev {$npmPackageParameters}";
         exec($command);
     }
 }
