@@ -17,9 +17,14 @@ class Installer
 
     public static function cleanUp()
     {
-        $workDirectory = basename(getcwd());
+        $workDirectory = getcwd();
         echo "Removing {$workDirectory}";
-        //"cd .. ; rm -rf test"
+
+        if (PHP_OS === 'Windows'){
+            exec(sprintf("rd /s /q %s", $workDirectory));
+        } else {
+            exec(sprintf("rm -rf %s", $workDirectory));
+        }
     }
 
     private static function movePayloads(Event $event)
