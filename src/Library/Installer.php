@@ -2,7 +2,6 @@
 
 namespace Library;
 
-use Composer\Installer\PackageEvent;
 use Composer\Script\Event;
 use Library\Messages;
 
@@ -109,7 +108,7 @@ class Installer
         $npmPackageParameters = implode(' ', $nodePackages);
         $workDir = getcwd() . '/../';
 
-        $command = "npm install --prefix {$workDir} --save-dev {$npmPackageParameters}";
+        $command = "npm install --cwd {$workDir} --save-dev {$npmPackageParameters}";
         exec($command);
     }
 }
