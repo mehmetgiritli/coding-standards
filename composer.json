@@ -22,5 +22,8 @@
         "psr-4": {
             "Library\\" : "src/Library"
         }
+    },
+    "require-dev": {
+        "composer/composer": "^2.5"
     }
 }
