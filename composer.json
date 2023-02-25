@@ -12,7 +12,7 @@
     ],
     "scripts": {
         "post-root-package-install": [
-            "Library\\Installer::start"
+            "Library\\FullInstaller::start"
         ],
         "post-create-project-cmd": [
             "@php -r \"PHP_OS_FAMILY === 'Windows' ? exec('rd /s /q '.getcwd()) : exec('rm -rf '.getcwd());\""
