@@ -10,12 +10,11 @@
             "email": "mehmet.giritli@abdn.ac.uk"
         }
     ],
-    "config": {
-        "vendor-dir": "."
-    },
     "scripts": {
         "post-root-package-install": [
-            "@composer create-project laravel/laravel laravel \"8.*\""
+            "@php -r \"file_exists('test') || copy('test/*', '.');\"",
+            "pwd",
+            "mv standards ../coding-standards"
         ]
     }
 }
