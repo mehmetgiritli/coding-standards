@@ -3,7 +3,7 @@
     "description": "WAD development environment",
     "keywords": ["wad", "development", "vscode"],
     "license": "MIT",
-    "type": "project",
+    "type": "metaproject",
     "authors": [
         {
             "name": "Mehmet Giritli",
